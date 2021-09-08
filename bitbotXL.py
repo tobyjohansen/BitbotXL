@@ -47,11 +47,13 @@ def move_forward():
 def move_left():
     pin14.write_analog(200)
     pin12.write_analog(0)
+    sleep(400)
 
 
 def move_right():
     pin16.write_analog(200)
     pin8.write_analog(0)
+    sleep(400)
 
 
 def stop():
