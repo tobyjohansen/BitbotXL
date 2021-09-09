@@ -1,6 +1,8 @@
-# Tobias Johansen - tobiaj@hiof.no
+# Teknologi og Samfunn Gruppe 10
+# Makerspace Oppgave
+# BitbotXL
 from microbit import *
-import neopixel #Neopixel library controls the NeoPixels lights on the bitbot
+import neopixel #Neopixel library controls the lights on the side of the Bitbot
 
 #Neopixel code is modified and taken from l33t.uk/bitbot
 np = neopixel.NeoPixel(pin13, 12)
@@ -18,7 +20,9 @@ def left_lights(Red, Green, Blue):
     
     
     
-#Line Sensor
+# Line Sensor
+# This code reads the line sensor on the bitbot and returns if its activated
+# This code is modified and taken from 4tronix.co.uk
 I2CADDR = 0x1c
 
 def getLine(bit):
@@ -33,7 +37,10 @@ def getLine(bit):
     else:
         return 0
 
-#Motor functions
+    
+# Motor Functions
+# These functions sets the PWM(Pulse Width Modulation) of each motor when the functions is run
+# This makes the wheels of the robot run to the corespondant function.
 def move_forward():
     pin14.write_analog(250)
     pin12.write_analog(0)
@@ -58,7 +65,9 @@ def stop():
     pin16.write_analog(0)
     pin8.write_analog(0)
 
-
+    
+# The main loop of the program
+# The main logic of the robot. If the light sensor activates it will drive according to the corespondant logic
 while True:
     left_line = getLine(0)
     right_line = getLine(1)
